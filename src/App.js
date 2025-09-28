@@ -11,6 +11,7 @@ import Generation from './pages/Generation';
 import Downloads from './pages/Downloads';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import { AuthProvider } from './services/auth';
+import AdminDashboard from './pages/AdminDashboard';
 
 import './styles/globals.css';
 import './styles/components.css';
@@ -29,6 +30,11 @@ function App() {
                         <Route path="/editor/:assetId" element={<ProtectedRoute><Editor /></ProtectedRoute>} />
                         <Route path="/generation" element={<ProtectedRoute><Generation /></ProtectedRoute>} />
                         <Route path="/downloads" element={<ProtectedRoute><Downloads /></ProtectedRoute>} />
+                        <Route path="/admin" element={
+  <ProtectedRoute>
+    <AdminDashboard />
+  </ProtectedRoute>
+} />
                     </Routes>
 
                     <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} newestOnTop closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
